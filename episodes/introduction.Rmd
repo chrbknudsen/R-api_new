@@ -6,106 +6,81 @@ exercises: 2
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- How do you write a lesson using R Markdown and `{sandpaper}`?
+- "Is this an introduction to R?"
+- "What should I remember about R?"
+- "What new concepts are introduced?"
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- Explain how to use markdown with the new lesson template
-- Demonstrate how to include pieces of code, figures, and nested challenge blocks
+- "Align expectations to required knowledge"
+- "Get an overview of the aims of this course"
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Introduction
+## This is not an introduction to R
 
-This is a lesson created via The Carpentries Workbench. It is written in
-[Pandoc-flavored Markdown][pandoc] for static files (with extension `.md`) and
-[R Markdown][r-markdown] for dynamic files that can render code into output
-(with extension `.Rmd`). Please refer to the [Introduction to The Carpentries
-Workbench][carpentries-workbench] for full documentation.
+This course assumes a certain level of knowledge about R. We are not going
+to cover the basics, and we are assuming that you know how to use the following  functionalities in R before starting this course:
 
-What you need to know is that there are three sections required for a valid
-Carpentries lesson template:
+- Have R and R-studio installed. 
+    - Alternatively run everything on rstudio.cloud
+- Know how to assign values to variables
+- Know what a function is, and how we pass input and parameters to it
+- Be familiar with the %>% operator
+- Know the basic verbs from dplyr of the tidyverse:
+    - select
+    - filter
+    - mutate
+    - arrange
+    - summarise
+- Be familiar with dataframes
+- Know how to install and load packages
+- Know how to comment your code
+- Know how to do math on variables
+- Get the concept of vectors
+- Subsetting vectors and dataframes
+    - Using logical tests
+- Use NA to encode missing values
+- Read in data from a csv/excel
 
- 1. `questions` are displayed at the beginning of the episode to prime the
-    learner for the content.
- 2. `objectives` are the learning objectives for an episode displayed with
-    the questions.
- 3. `keypoints` are displayed at the end of the episode to reinforce the
-    objectives.
-
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: instructor
-
-Inline instructor notes can help inform instructors of timing challenges
-associated with the lessons. They appear in the "Instructor View"
-
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::: challenge 
-
-## Challenge 1: Can you do it?
-
-What is the output of this command?
-
-```r
-paste("This", "new", "lesson", "looks", "good")
-```
-
-:::::::::::::::::::::::: solution 
-
-## Output
- 
-```output
-[1] "This new lesson looks good"
-```
-
-:::::::::::::::::::::::::::::::::
+If any of these topics are unfamiliar, we strongly recommend that you either 
+take one of our introductory courses, read up on the curriculum of one of them, 
+or follow one of the many amazing courses you can find online, before taking 
+this course.
 
 
-## Challenge 2: how do you nest solutions within challenge blocks?
+## New concepts in R
+Three concepts are typically not covered in our introductions.
 
-:::::::::::::::::::::::: solution 
+- Factors
+- dates
+- lists
 
-You can add a line with at least three colons and a `solution` tag.
+We will look at them when we need them.
 
-:::::::::::::::::::::::::::::::::
-::::::::::::::::::::::::::::::::::::::::::::::::
+## What is covered?
 
-## Figures
+We will look at how to extract data from APIs in general. 
 
-You can include figures generated from R Markdown:
+We start with the GET method, to get bad jokes.
 
-```{r pyramid, fig.alt = "pie chart illusion of a pyramid", fig.cap = "Sun arise each and every morning"}
-pie(
-  c(Sky = 78, "Sunny side of pyramid" = 17, "Shady side of pyramid" = 5), 
-  init.angle = 315, 
-  col = c("deepskyblue", "yellow", "yellow3"), 
-  border = FALSE
-)
-```
-Or you can use pandoc markdown for static figures with the following syntax:
+The POST method allow more advanced searches in the API. We apply it to
+the API provided by Statistics Denmark.
 
-`![optional caption that appears below the figure](figure url){alt='alt text for
-accessibility purposes'}`
+Finally the package *danstat* is introduced. This is provides an easier way to interact
+with Statistics Denmark.
 
-![You belong in The Carpentries!](https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.'}
 
-## Math
 
-One of our episodes contains $\LaTeX$ equations when describing how to create
-dynamic reports with {knitr}, so we now use mathjax to describe this:
 
-`$\alpha = \dfrac{1}{(1 - \beta)^2}$` becomes: $\alpha = \dfrac{1}{(1 - \beta)^2}$
-
-Cool, right?
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
-- Use `.md` files for episodes when you want static content
-- Use `.Rmd` files for episodes when you need to generate output
-- Run `sandpaper::check_lesson()` to identify any issues with your lesson
-- Run `sandpaper::build_lesson()` to preview your lesson locally
+- "This course builds on previous courses and is not suitable for absolute beginners."
+- "We begin by accessing an API using lowlevel methods, and end by applying them on another API."
+questions:
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
