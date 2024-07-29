@@ -1,36 +1,26 @@
 ---
-title: "What is an API?"
-teaching: 15
-exercises: 0
-output: 
-  html_document:
-    df_print: paged
-objectives:
-- "Understand what an API do"
-- "Get to know the two main ways to get data from APIs"
-keypoints: 
-- "Getting data from an API is equivalent to requesting a webpage"
-- "GET requests specify what data we want to retrieve in the URL"
-- "POST requests specify what data we want to retrieve in the body of the request."
-- "Both requests have headers that we can manipulate to get what we want."
-source: Rmd
-questions:
-- "What is an API?"
-- "How do our computer interact with servers?"
-editor_options: 
-  markdown: 
-    wrap: 72
+title: 'What is an API?'
+teaching: 10
+exercises: 2
 ---
 
-```{r setup, include = F, echo=F}
-source("../bin/chunk-options.R")
-knitr_fig_path("01-")
-source("../bin/download_data.R")
-```
+:::::::::::::::::::::::::::::::::::::: questions 
+
+- "What is an API?"
+- "How do our computer interact with servers?"
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::: objectives
+
+- "Understand what an API do"
+- "Get to know the two main ways to get data from APIs"
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
 
 ```{r setup2, include = F, echo=F}
-library(remotes)
-remotes::install_github("cran/danstat")
 library(danstat)
 library(tidyverse)
 ```
@@ -142,4 +132,14 @@ more secure, because the body can be encrypted during transport from our
 computer to the server. This is also the method we need to use should
 the API require a login.
 
-{% include links.md %}
+
+
+::::::::::::::::::::::::::::::::::::: keypoints 
+
+- "Getting data from an API is equivalent to requesting a webpage"
+- "GET requests specify what data we want to retrieve in the URL"
+- "POST requests specify what data we want to retrieve in the body of the request."
+- "Both requests have headers that we can manipulate to get what we want."
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
