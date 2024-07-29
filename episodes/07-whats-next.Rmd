@@ -1,0 +1,44 @@
+---
+title: "Whats next?"
+teaching: 30
+exercises: 15
+questions:
+- "What is the next step?"
+objectives:
+- "Get an idea about what to do to learn more"
+
+keypoints:
+- "Practice makes perfect"
+- "KUB Datalab offers lots of courses and consultations"
+- "The web is overflowing with tutorials and courses"
+source: Rmd
+---
+
+```{r, include=FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("06-")
+source("../bin/download_data.R")
+## load the tidyverse
+library(tidyverse)
+```
+
+The goal of this course was to give an introduction on how to work
+with API in general.
+
+For many of the major services online, there exists specialized packages
+making it easier to work with their API. 
+
+Ideally we would have a complete list here.
+
+Less ambitiously we would have a solid selection.
+
+For now we have one.
+
+The [gargle package](https://cran.r-project.org/web/packages/gargle/index.html),
+provides tools for working with the Google APIs.
+
+
+<!-- ![RStudio_startup](https://github.com/KUBDatalab/KUBDatalab.github.io/blob/main/spot.jpg?raw=true) -->
+
+
+{% include links.md %}
