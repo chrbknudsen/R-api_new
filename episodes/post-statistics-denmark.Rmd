@@ -38,11 +38,9 @@ data from Statistics Denmark.
 But before we can do that, we need to know how the SD-API expects to receive 
 data.
 
-Hopefully we can get that by reading the documentation. We can find that here:
+Hopefully we can get that by reading the [documentation, that can be found here.]https://www.dst.dk/en/Statistik/brug-statistikken/muligheder-i-statistikbanken/api
 
-https://www.dst.dk/en/Statistik/brug-statistikken/muligheder-i-statistikbanken/api
-
-That was confusing!
+But that is rather confusing.
 
 
 The main points:
