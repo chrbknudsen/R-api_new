@@ -1,22 +1,23 @@
 ---
-title: "Time"
-keypoints:
-- "Working with time and dates can be complicated. Lubridate makes it easier"
-- "Special date-time formats can be handled using the library zoo"
-objectives:
-- "Learn how to convert text describing dates and time to something R can understand"
-questions:
-- "How can I convert a textual representation of time and dates to something R can understand?"
-teaching: 50
-exercises: 30
-source: Rmd
+title: 'note-on-time'
+teaching: 10
+exercises: 2
 ---
 
+:::::::::::::::::::::::::::::::::::::: questions 
 
-```{r setup, include = FALSE}
-source("../bin/chunk-options.R")
-knitr_fig_path("05-")
-source("../bin/download_data.R")
+- "How can I convert a textual representation of time and dates to something R can understand?"
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::: objectives
+
+- "Learn how to convert text describing dates and time to something R can understand"
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+```{r setup, include = FALSE, warning=FALSE, message=FALSE}
 library(tidyverse )
 ```
 
@@ -58,7 +59,7 @@ lubridate is a package written to make working with dates and times easy(er).
 
 It may need to be installed first.
 
-```{r lubridate-install, eval=F}
+```{r lubridate-install, eval=FALSE}
 install.packages("lubridate")
 ```
 
@@ -128,12 +129,12 @@ The library tsibble provides functions that can convert "2020Q1", the first
 quarter of 2020, into something R can understand as time-value:
 
 We might need to install it first:
-```{r install-tsibble, eval=F}
+```{r install-tsibble, eval=FALSE}
 install.packages("tsibble")
 ```
 
 And then load it:
-```{r load-tsibble}
+```{r load-tsibble, message=FALSE,warning=FALSE}
 library(tsibble)
 ```
 
@@ -174,4 +175,12 @@ write_csv2(data, "data/SD_data.csv")
 Note that we are using write_csv2() here. We do not have decimalpoints in this
 data, but other data might have.
 
-{% include links.md %}
+
+
+::::::::::::::::::::::::::::::::::::: keypoints 
+
+- "Working with time and dates can be complicated. Lubridate makes it easier"
+- "Special date-time formats can be handled using the library zoo"
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
