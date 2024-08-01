@@ -1,32 +1,23 @@
 ---
-title: "GETting data"
-teaching: 30
-exercises: 15
-output: 
-  html_document:
-    df_print: paged
-objectives:
-- Learn how to retrieve data using the GET method
-- Learn how to adjust headers to get desired result
-keypoints: 
-- 200 is the internet code for everything is OK
-- GET requests can be adjusted to specify desired result
-- Dad jokes are not really that good.
-source: Rmd
-questions:
-- How do I get data from an API using the GET method?
-- Is there a way to modify headers, to get a specific type of result?
-editor_options: 
-  markdown: 
-    wrap: 72
+title: 'GETting data'
+teaching: 10
+exercises: 2
 ---
 
-```{r setup, include = F, echo=F}
-source("../bin/chunk-options.R")
-knitr_fig_path("02-")
-source("../bin/download_data.R")
-library(remotes)
-remotes::install_github("cran/danstat")
+:::::::::::::::::::::::::::::::::::::: questions 
+
+- How do I get data from an API using the GET method?
+- Is there a way to modify headers, to get a specific type of result?
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::: objectives
+
+- Learn how to retrieve data using the GET method
+- Learn how to adjust headers to get desired result
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+```{r setup-libraries, echo = F, warning=F, message=F}
 library(danstat)
 library(tidyverse)
 ```
@@ -39,23 +30,25 @@ please excuse us for any red errors on the pages for the time being.
 
 The site icanhazdadjoke.com offers a wide selection of dad-jokes.
 
+:::: callout
 
-> ## Dad jokes
-> a wholesome joke of the type said to be told by fathers with a punchline that is often an obvious or predictable pun or play on words and usually judged to be endearingly corny or unfunny
-> https://www.merriam-webster.com/dictionary/dad%20joke
-{: .callout}
+## Dad jokes
+ a wholesome joke of the type said to be told by fathers with a punchline that is often an obvious or predictable pun or play on words and usually judged to be endearingly corny or unfunny
+ https://www.merriam-webster.com/dictionary/dad%20joke
+
+::::
 
 
 In addition to the website, an API is available that can be accessed using the  GET method.
 
 The GET method is a generic procedure, we need a function that actually handles the behind-the-scenes-stuff for us.
 The library *httr* have an implementation:
-```{r}
+```{r loading httr}
 library(httr)
 ```
 
 Taking a quick look at the [documentation](https://icanhazdadjoke.com/api) we first try GET directly:
-```{r}
+```{r first-call}
 GET("https://icanhazdadjoke.com/")
 ```
 
@@ -76,7 +69,7 @@ than the default html, more specifically "text/plain".
 *httr* has helper functions to assist us. The one we need here is *accept()*
 We now use that to tell the server, that we really want a response in just
 text:
-```{r}
+```{r first-random-joke}
 result <- GET("https://icanhazdadjoke.com/", accept("text/plain")) 
 result
 ```
@@ -86,7 +79,7 @@ everything is OK. But where is our dad-joke?
 It is hidden in the content of the response. It is sent to us as binary code,
 so we are using the *content()* function, also from *httr* to extract it:
 
-```{r}
+```{r first-result}
 content(result)
 ```
 
@@ -96,31 +89,33 @@ What if we need to retrieve a specific joke? All the jokes has an ID, that
 we can use for that. If we want to find that, we need a bit more information about the joke. We can get that by specifying that we would like the result of our
 GET-request returned as JSON. 
 
+:::: callout
 
-> ## JSON
->JSON (JavaScript Object Notation) is a format for structuring, 
->in principle, any kind for text, structured in almost any way.
->It consists of pairs of strings, one denoting the name of the data we
->are looking at, and one containing the content of that data. Each set of 
->data fields are encapsulated in curly braces, and a data field can have 
->subfields, also encapsulated in curly braces. It can look like this:
->
->{
->"firstName": "John",
->"lastName": "Smith",
->"phoneNumbers":{
->  "type": "home",
->  "number": "212 555-1234"
->    },
->    {
->      "type": "office",
->      "number": "646 555-4567"
->    }
->}
->
-> JSON is readable for both humans and computers, but can be a bit 
-> tricky to convert to dataframes if there are a lot of nested fields.
-{: .callout}
+## JSON
+JSON (JavaScript Object Notation) is a format for structuring, 
+in principle, any kind for text, structured in almost any way.
+It consists of pairs of strings, one denoting the name of the data we
+are looking at, and one containing the content of that data. Each set of 
+data fields are encapsulated in curly braces, and a data field can have 
+subfields, also encapsulated in curly braces. It can look like this:
+
+{
+"firstName": "John",
+"lastName": "Smith",
+"phoneNumbers":{
+  "type": "home",
+  "number": "212 555-1234"
+    },
+    {
+      "type": "office",
+      "number": "646 555-4567"
+    }
+}
+
+JSON is readable for both humans and computers, but can be a bit 
+tricky to convert to dataframes if there are a lot of nested fields.
+
+::::
 
 
 
@@ -129,7 +124,7 @@ Looking at the documentation, we see an example, which indicates that what
 we should tell the server that we accept, should be "application/json".
 The *httr* library contains helper functions to assist us in manipulating the 
 header. We use *accept()* that sets the *accept* part of the header:
-```{r}
+```{r random-joke}
 result <- GET("https://icanhazdadjoke.com/", accept("application/json")) 
 result
 ```
@@ -140,7 +135,7 @@ We also see a truncated version of the actual joke.
 
 Let us use the content() function to extract the content:
 
-```{r}
+```{r content}
 content(result)
 ```
 This data is returned as a list, which is the R-default way of 
@@ -158,7 +153,7 @@ The way to retrieve a specific joke is to GET the URL:
 Where we replace the *joke_id* with the specific joke we want. Remember to
 specify the result that we want:
 
-```{r}
+```{r specific-joke}
 GET("https://icanhazdadjoke.com/j/lGJmrrzAsc",  accept("text/plain")) %>% 
   content()
 ```
@@ -176,7 +171,7 @@ Dogs are always fun, let us search for dad jokes about dogs. Specify the
 type of result we want, pipe the response to the content() function and save 
 it to *result*:
 
-```{r}
+```{r dog-jokes}
 result <- GET("https://icanhazdadjoke.com/search?term=dog",
               accept("application/json")) %>% 
           content()
@@ -189,7 +184,8 @@ datastructure. How can we get that to a data frame?
 the content() function can treat the content of our response in different ways.
 If we treat it as text, the function fromJSON from the library *jsonlite*, can 
 convert it to a data frame. We begin by loading the library:
-```{r}
+
+```{r extract-from-json}
 library(jsonlite)
 GET("https://icanhazdadjoke.com/search?term=dog", accept("application/json")) %>% 
   content(as="text") %>% 
@@ -209,20 +205,30 @@ Next, we are going to take a look on how we get results using the POST method,
 on an API that provides more factual and serious, but not so funny data.
 
 
-> ## Exercise
->
-> Request dad jokes about cats
->
-> > ## Solution
-> >
-> > ```{r}
-> > GET("https://icanhazdadjoke.com/search?term=dog", accept("application/json")) %>% 
-> > content(as="text") %>% 
-> > fromJSON()
-> > ```
-> {: .solution}
-{: .challenge}
+:::: challenge
+## Exercise
+Request dad jokes about cats
+
+:::: solution
+
+## Solution
+
+```{r}
+GET("https://icanhazdadjoke.com/search?term=dog", accept("application/json")) %>% 
+content(as="text") %>% 
+fromJSON()
+```
+
+::::
+
+::::
 
 
+::::::::::::::::::::::::::::::::::::: keypoints 
 
-{% include links.md %}
+- 200 is the internet code for everything is OK
+- GET requests can be adjusted to specify desired result
+- Dad jokes are not really that good.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+

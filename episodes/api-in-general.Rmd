@@ -20,7 +20,7 @@ exercises: 2
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-```{r setup2, include = F, echo=F}
+```{r setup-libraries, include = F, echo=F}
 library(danstat)
 library(tidyverse)
 ```
@@ -44,7 +44,7 @@ Webservers and browsers communicate using the HTTP protocol, and the
 mechanics of this communication can be visualized like this:
 
 ![Structure of what is happening behind the scenes when we request a
-webpage](../fig/http-structure.png)
+webpage](images/http-structure.png)
 
 
 -   When we type in an URL in our browser, it translates that URL to a
@@ -104,14 +104,14 @@ placed directly in the URL.
 
 What we are sending to the server looks like this:
 
-![GET header](../fig/GET-headers.png)
+![GET header](images/GET-headers.png)
 
 In a *POST* request, that information is stored in the body of the
 request.
 
 That looks like this:
 
-![POST header](../fig/POST-headers.png)
+![POST header](images/POST-headers.png)
 
 Note that the main difference between these two sets of headers, besides
 the difference in GET and POST, is that there is a *body* in the POST

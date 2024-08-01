@@ -61,6 +61,7 @@ contact: 'team@carpentries.org'
 episodes: 
 - introduction.Rmd
 - api-in-general.Rmd
+- getting-data.Rmd
 
 # Information for Learners
 learners: 
