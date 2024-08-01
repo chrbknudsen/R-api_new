@@ -1,31 +1,28 @@
 ---
-title: "What about danstat?"
-teaching: 30
-exercises: 15
-output: 
-  html_document:
-    df_print: paged
-objectives:
+title: 'What about danstat?'
+teaching: 10
+exercises: 2
+---
+
+:::::::::::::::::::::::::::::::::::::: questions 
+
+- "Is there an easier way to access Statistics Denmark"
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::: objectives
+
 - "Use a package to do the API-calls to Statistics Denmark"
 - "Connect to Statistics Denmark, and extract data"
 - "Create a list of lists to control the variables to be extracted"
 - "Using the danstat package"
 
-keypoints: 
-- "Larger services often provide packages to make it easier to use their API"
 
-source: Rmd
-questions:
-- "Is there an easier way to access Statistics Denmark"
+::::::::::::::::::::::::::::::::::::::::::::::::
 
----
 
-```{r setup, include = F, echo=F}
-source("../bin/chunk-options.R")
-knitr_fig_path("03-")
-source("../bin/download_data.R")
-library(remotes)
-remotes::install_github("cran/danstat")
+```{r setup, include = FALSE, echo=FALSE, message=FALSE, warning=FALSE}
+
 library(danstat)
 library(tidyverse)
 ```
@@ -54,12 +51,13 @@ How can we get that table using the danstat package?
 
 Before using the library, we will need to install it:
 
-```{r how-to-install-danstat, eval=F}
+```{r how-to-install-danstat, eval=FALSE}
 install.packages("danstat")
 ```
 
 Some installations of R may have problems installing it. In that case, try this:
-```{r alternative-danstat-install, eval =F}
+
+```{r alternative-danstat-install, eval =FALSE}
 install.packages("remotes")
 library(remotes)
 remotes:install_github("cran/danstat")
@@ -308,11 +306,19 @@ This procedure will work for all the tables from Statistics Denmark!
 The data is nicely formatted and ready to use. Almost.
 
 Before we do anything else, let us save the data.
-```{r write-data-hidden, echo = F}
-write_csv2(data, "../data/SD_data.csv")
+```{r write-data-hidden, echo = FALSE}
+write_csv2(data, "data/SD_data.csv")
 ```
-```{r write-data-shown, eval = F}
+```{r write-data-shown, eval = FALSE}
 write_csv2(data, "data/SD_data.csv")
 ```
 
-{% include links.md %}
+
+
+
+::::::::::::::::::::::::::::::::::::: keypoints 
+
+- "Larger services often provide packages to make it easier to use their API"
+
+::::::::::::::::::::::::::::::::::::::::::::::::
+
