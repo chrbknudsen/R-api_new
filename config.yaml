@@ -8,7 +8,7 @@
 # lc: Library Carpentry
 # cp: Carpentries (to use for instructor training for instance)
 # incubator: The Carpentries Incubator
-carpentry: 'incubator'
+carpentry: 'lc'
 
 # Overall title for pages.
 title: 'Lesson Title'
@@ -64,6 +64,7 @@ episodes:
 - getting-data.Rmd
 - post-statistics-denmark.Rmd
 - danstat.Rmd
+- note-on-time.Rmd
 
 # Information for Learners
 learners: 
