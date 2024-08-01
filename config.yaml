@@ -62,6 +62,7 @@ episodes:
 - introduction.Rmd
 - api-in-general.Rmd
 - getting-data.Rmd
+- post-statistics-denmark.Rmd
 
 # Information for Learners
 learners: 
