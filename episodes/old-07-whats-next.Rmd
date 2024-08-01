@@ -15,9 +15,6 @@ source: Rmd
 ---
 
 ```{r, include=FALSE}
-source("../bin/chunk-options.R")
-knitr_fig_path("06-")
-source("../bin/download_data.R")
 ## load the tidyverse
 library(tidyverse)
 ```
@@ -37,6 +34,10 @@ For now we have one.
 The [gargle package](https://cran.r-project.org/web/packages/gargle/index.html),
 provides tools for working with the Google APIs.
 
+
+[The Guardian](https://open-platform.theguardian.com/) have an open API providing
+access to >2 million articles from that newspaper. You will need to register for
+an API key, but it is free.
 
 <!-- ![RStudio_startup](https://github.com/KUBDatalab/KUBDatalab.github.io/blob/main/spot.jpg?raw=true) -->
 
