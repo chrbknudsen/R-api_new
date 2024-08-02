@@ -58,22 +58,23 @@ contact: 'kubdatalab@kb.dk'
 # - another-learner.md
 
 # Order of episodes in your lesson
-episodes:
+episodes: 
 - introduction.Rmd
 - api-in-general.Rmd
 - getting-data.Rmd
 - post-statistics-denmark.Rmd
 - danstat.Rmd
 - note-on-time.Rmd
+- ggplot2.Rmd
 
 # Information for Learners
-learners:
+learners: 
 
 # Information for Instructors
-instructors:
+instructors: 
 
 # Learner Profiles
-profiles:
+profiles: 
 
 # Customisation ---------------------------------------------
 #
