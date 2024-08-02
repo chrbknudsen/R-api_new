@@ -1,47 +1,47 @@
 ---
-title: "Data Visualisation with ggplot2"
-teaching: 80
-exercises: 35
-questions:
+title: 'ggplot2'
+teaching: 10
+exercises: 2
+---
+
+:::::::::::::::::::::::::::::::::::::: questions 
+
   - "What are the components of a ggplot?"
   - "How do I create scatterplots, boxplots, and barplots?"
   - "How can I change the aesthetics (ex. colour, transparency) of my plot?"
-  - "How can I create multiple plots at once?"
-objectives:
+  
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+::::::::::::::::::::::::::::::::::::: objectives
+
    - "Produce scatter plots, boxplots, and barplots using ggplot."
    - "Set universal plot settings."
    - "Describe what faceting is and apply faceting in ggplot."
    - "Modify the aesthetics of an existing ggplot plot (including axis labels and colour)."
    - "Build complex and customized plots from data in a data frame."
-keypoints:
-   - "`ggplot2` is a flexible and useful tool for creating plots in R."
-   - "The data set and coordinate system can be defined using the `ggplot` function."
-   - "Additional layers, including geoms, are added using the `+` operator."
-   - "Boxplots are useful for visualizing the distribution of a continuous variable."
-   - "Barplots are useful for visualizing categorical data."
-   - "Faceting allows you to generate multiple plots based on a categorical variable."
-source: Rmd
----
 
-```{r, include=FALSE}
-source("../bin/chunk-options.R")
-knitr_fig_path("05-")
-source("../bin/download_data.R")
+::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::: instructor
+
+Det her - det når vi aldrig.
+
+::::
+
+
+```{r setup , include=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(tsibble)
 ```
 
-Nice data. How does it look?
+## Nice data. How does it look?
 
 R has some nice plotting functions build in.
 
 ggplot2 is a package with more, nicer, plotting possibilities.
 
-
 We start by loading the required package. **`ggplot2`** is also included in the
 **`tidyverse`** package.
-
-
 
 
 ```{r load-package, message=FALSE, purl=FALSE}
@@ -52,7 +52,7 @@ If not still in the workspace, load the data we saved in the previous lesson.
 
 
 ```{r load-data, purl=FALSE, eval=T}
-SD_data <- read_csv2("../data/SD_data.csv")
+SD_data <- read_csv2("data/SD_data.csv")
 ```
 
 We read in data from a csv-file. That is stored as text, so we need to convert
@@ -170,19 +170,13 @@ data_plot +
 ```
 A lot better.
 
-> ## Notes
->
-> - Anything you put in the `ggplot()` function can be seen by any geom layers
->   that you add (i.e., these are universal plot settings). This includes the x-
->   and y-axis mapping you set up in `aes()`.
-> - You can also specify mappings for a given geom independently of the mapping
->   defined globally in the `ggplot()` function.
-> - The `+` sign used to add new layers must be placed at the end of the line
->   containing the *previous* layer. If, instead, the `+` sign is added at the
->   beginning of the line containing the new layer, **`ggplot2`** will not add
->   the new layer and will return an error message.
+:::: callout
+## Notes
+- Anything you put in the `ggplot()` function can be seen by any geom layers that you add (i.e., these are universal plot settings). This includes the x- and y-axis mapping you set up in `aes()`.
+- You can also specify mappings for a given geom independently of the mapping defined globally in the `ggplot()` function.
+- The `+` sign used to add new layers must be placed at the end of the line containing the *previous* layer. If, instead, the `+` sign is added at the beginning of the line containing the new layer, **`ggplot2`** will not add the new layer and will return an error message.
 
-{: .callout}
+::::
 
 ```{r ggplot-with-plus-position, eval=FALSE, purl=FALSE}
 ## This is the correct syntax for adding layers
@@ -431,6 +425,14 @@ plot_data %>%
     theme(panel.grid = element_blank())
 ```
 
+::::::::::::::::::::::::::::::::::::: keypoints 
 
+   - "`ggplot2` is a flexible and useful tool for creating plots in R."
+   - "The data set and coordinate system can be defined using the `ggplot` function."
+   - "Additional layers, including geoms, are added using the `+` operator."
+   - "Boxplots are useful for visualizing the distribution of a continuous variable."
+   - "Barplots are useful for visualizing categorical data."
+   - "Faceting allows you to generate multiple plots based on a categorical variable."
 
-{% include links.md %}
+::::::::::::::::::::::::::::::::::::::::::::::::
+
