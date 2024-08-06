@@ -1,5 +1,5 @@
 ---
-title: 'note-on-time'
+title: 'A short note on time'
 teaching: 10
 exercises: 2
 ---
@@ -39,7 +39,7 @@ marriage status and geographical area. And time.
 If the data is not still in memory, we can read it in:
 
 ```{r read-data-hidden, echo = F}
-data <- read_csv2("../data/SD_data.csv")
+data <- read_csv2("data/SD_data.csv")
 ```
 
 ```{r read-data-shown, eval = F}
