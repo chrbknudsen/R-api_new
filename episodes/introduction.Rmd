@@ -55,7 +55,7 @@ this course.
 ## New concepts in R
 Three concepts are typically not covered in our introductions.
 
-- Factors
+- factors
 - dates
 - lists
 
