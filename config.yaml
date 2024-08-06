@@ -11,13 +11,13 @@
 carpentry: 'lc'
 
 # Overall title for pages.
-title: 'Lesson Title'
+title: 'APIs with R'
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
 created: '2024-07-29'
 
 # Comma-separated list of keywords for the lesson
-keywords: 'software, data, lesson, The Carpentries'
+keywords: 'software, data, lesson, API, R'
 
 # Life cycle stage of the lesson
 # possible values: pre-alpha, alpha, beta, stable
@@ -58,7 +58,7 @@ contact: 'kubdatalab@kb.dk'
 # - another-learner.md
 
 # Order of episodes in your lesson
-episodes: 
+episodes:
 - introduction.Rmd
 - api-in-general.Rmd
 - getting-data.Rmd
@@ -68,13 +68,13 @@ episodes:
 - ggplot2.Rmd
 
 # Information for Learners
-learners: 
+learners:
 
 # Information for Instructors
-instructors: 
+instructors:
 
 # Learner Profiles
-profiles: 
+profiles:
 
 # Customisation ---------------------------------------------
 #

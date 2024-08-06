@@ -43,8 +43,9 @@ have all done.
 Webservers and browsers communicate using the HTTP protocol, and the
 mechanics of this communication can be visualized like this:
 
-![Structure of what is happening behind the scenes when we request a
-webpage](images/http-structure.png)
+
+
+![Structure of what is happening behind the scenes when we request a webpage](fig/http-structure.png)
 
 
 -   When we type in an URL in our browser, it translates that URL to a
@@ -104,14 +105,14 @@ placed directly in the URL.
 
 What we are sending to the server looks like this:
 
-![GET header](images/GET-headers.png)
+![GET header](fig/GET-headers.png)
 
 In a *POST* request, that information is stored in the body of the
 request.
 
 That looks like this:
 
-![POST header](images/POST-headers.png)
+![POST header](fig/POST-headers.png)
 
 Note that the main difference between these two sets of headers, besides
 the difference in GET and POST, is that there is a *body* in the POST
