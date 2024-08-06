@@ -39,8 +39,8 @@ provides tools for working with the Google APIs.
 access to >2 million articles from that newspaper. You will need to register for
 an API key, but it is free.
 
-<!-- ![RStudio_startup](https://github.com/KUBDatalab/KUBDatalab.github.io/blob/main/spot.jpg?raw=true) -->
-
+[Wikidata](https://www.wikidata.org/wiki/Wikidata:REST_API) handles factual data
+for the Wikipedia infrastructure. 
 
 https://laderast.github.io/intro_apis_json_cascadia/
 
