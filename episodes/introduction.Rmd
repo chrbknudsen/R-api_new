@@ -24,7 +24,7 @@ exercises: 2
 This course assumes a certain level of knowledge about R. We are not going
 to cover the basics, and we are assuming that you know how to use the following  functionalities in R before starting this course:
 
-- Have R and R-studio installed. 
+- [Have R and R-studio installed](https://kubdatalab.github.io/R-api_new/#software-setup)
     - Alternatively run everything on rstudio.cloud
 - Know how to assign values to variables
 - Know what a function is, and how we pass input and parameters to it
@@ -46,7 +46,8 @@ to cover the basics, and we are assuming that you know how to use the following 
 - Read in data from a csv/excel
 
 If any of these topics are unfamiliar, we strongly recommend that you either 
-take one of our introductory courses, read up on the curriculum of one of them, 
+take one of our [introductory courses](https://kubdatalab.github.io/R-intro/), 
+read up on the curriculum of one of them, 
 or follow one of the many amazing courses you can find online, before taking 
 this course.
 
