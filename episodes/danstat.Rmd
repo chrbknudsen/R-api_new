@@ -80,7 +80,7 @@ subjects
 ```
 
 
-We get the 13 major subjects from Statistics Denmark we have seen before.
+We get the 10 major subjects from Statistics Denmark we have seen before.
 As before, each of them have sub-subjects.
 
 If we want to take a closer look at the 
