@@ -6,13 +6,13 @@ exercises: 2
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- "How can I convert a textual representation of time and dates to something R can understand?"
+- How can I convert a textual representation of time and dates to something R can understand?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- "Learn how to convert text describing dates and time to something R can understand"
+- Learn how to convert text describing dates and time to something R can understand
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -179,8 +179,8 @@ data, but other data might have.
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
-- "Working with time and dates can be complicated. Lubridate makes it easier"
-- "Special date-time formats can be handled using the library zoo"
+- Working with time and dates can be complicated. Lubridate makes it easier
+- Special date-time formats can be handled using the library zoo
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 

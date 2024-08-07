@@ -6,16 +6,16 @@ exercises: 2
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- "Is this an introduction to R?"
-- "What should I remember about R?"
-- "What new concepts are introduced?"
+- Is this an introduction to R?
+- What should I remember about R?
+- What new concepts are introduced?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- "Align expectations to required knowledge"
-- "Get an overview of the aims of this course"
+- Align expectations to required knowledge
+- Get an overview of the aims of this course
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -70,7 +70,7 @@ We start with the GET method, to get bad jokes.
 The POST method allow more advanced searches in the API. We apply it to
 the API provided by Statistics Denmark.
 
-Finally the package *danstat* is introduced. This is provides an easier way to interact
+Finally the package *danstat* is introduced. This  provides an easier way to interact
 with Statistics Denmark.
 
 
@@ -79,8 +79,8 @@ with Statistics Denmark.
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
-- "This course builds on previous courses and is not suitable for absolute beginners."
-- "We begin by accessing an API using lowlevel methods, and end by applying them on another API."
+- This course builds on previous courses and is not suitable for absolute beginners.
+- We begin by accessing an API using lowlevel methods, and end by applying them on another API.
 questions:
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
