@@ -6,15 +6,15 @@ exercises: 2
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- "What is an API?"
-- "How do our computer interact with servers?"
+- What is an API?
+- How do our computer interact with servers?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- "Understand what an API do"
-- "Get to know the two main ways to get data from APIs"
+- Understand what an API do
+- Get to know the two main ways to get data from APIs
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
@@ -137,10 +137,10 @@ the API require a login.
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
-- "Getting data from an API is equivalent to requesting a webpage"
-- "GET requests specify what data we want to retrieve in the URL"
-- "POST requests specify what data we want to retrieve in the body of the request."
-- "Both requests have headers that we can manipulate to get what we want."
+- Getting data from an API is equivalent to requesting a webpage
+- GET requests specify what data we want to retrieve in the URL
+- POST requests specify what data we want to retrieve in the body of the request.
+- Both requests have headers that we can manipulate to get what we want.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
