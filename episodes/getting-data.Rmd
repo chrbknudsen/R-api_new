@@ -154,6 +154,7 @@ Where we replace the *joke_id* with the specific joke we want. Remember to
 specify the result that we want:
 
 ```{r specific-joke}
+library(tidyverse)
 GET("https://icanhazdadjoke.com/j/lGJmrrzAsc",  accept("text/plain")) %>% 
   content()
 ```
