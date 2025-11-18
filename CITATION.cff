@@ -1,22 +1,24 @@
-# This template CITATION.cff file was generated with cffinit.
-# Visit https://bit.ly/cffinit to replace its contents
-# with information about your lesson.
-# Remember to update this file periodically, 
-# ensuring that the author list and other fields remain accurate.
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
 
 cff-version: 1.2.0
-title: FIXME
+title: APIs with R
 message: >-
-  Please cite this lesson using the information in this file
-  when you refer to it in publications, and/or if you
-  re-use, adapt, or expand on the content in your own
-  training material.
-type: dataset
+  Please cite this lesson using the information in this
+  file   when you refer to it in publications, and/or if
+  you   re-use, adapt, or expand on the content in your
+  own   training material.
+type: software
 authors:
-  - given-names: FIXME
-    family-names: FIXME
+  - given-names: Christian Boldsen
+    family-names: Knudsen
+    email: cbk@kb.dk
+    affiliation: Copenhagen University Library
+    orcid: 'https://orcid.org/0000-0002-9816-768X'
+repository-code: 'https://github.com/KUBDatalab/R-api'
+url: 'https://kubdatalab.github.io/R-api/'
 abstract: >-
-  FIXME Replace this with a short abstract describing the
-  lesson, e.g. its target audience and main intended
-  learning objectives.
-license: CC-BY-4.0
+  A Carpentries formatted lesson for teaching APIs with R 
+  at KUB Datalab.
+keywords:
+  - R
