@@ -99,8 +99,7 @@ with Statistics Denmark.
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
 - This course builds on previous courses and is not suitable for absolute beginners.
-- We begin by accessing an API using lowlevel methods, and end by applying them on another API.
-questions:
+- We begin by accessing an API using lowlevel methods, and end by using higher level methods.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
