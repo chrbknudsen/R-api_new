@@ -159,7 +159,7 @@ our purposes.
 
 Let us finish by converting the "TID" column in our data, to a time-format.
 ```{r mutate-quarters}
-data <- data %>% 
+data <- data |> 
   mutate(TID = yearquarter(TID))
 ```
 

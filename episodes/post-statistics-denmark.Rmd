@@ -132,7 +132,7 @@ Both informative. And utterly useless. The informative information is that our r
 Let us get the content of the result, which is what we actually want:
 
 ```{r get-content}
-result %>% 
+result |> 
   content()
 ```
 More informative, but not really easy to read. 
@@ -140,8 +140,8 @@ More informative, but not really easy to read.
 The library `jsonlite` has a function that converts this to something readable:
 
 ```{r get-content-to-json}
-result %>% 
-  content() %>% 
+result |> 
+  content() |> 
   fromJSON()
 ```
 
@@ -176,8 +176,8 @@ value at a time.
 Note that it is important that we tell the POST function that the body is the body:
 
 ```{r hent-data-til-json}
-data <- POST(endpoint, body=our_body, encode = "json") %>% 
-  content() %>% 
+data <- POST(endpoint, body=our_body, encode = "json") |> 
+  content() |> 
   fromJSON()
 
 data
@@ -205,8 +205,8 @@ our_body <- list(lang = "en", recursive = F,
 
 
 ```{r subject-3401-til-json}
-data <- POST(endpoint, body=our_body, encode = "json") %>% 
-  content() %>% 
+data <- POST(endpoint, body=our_body, encode = "json") |> 
+  content() |> 
   fromJSON()
 
 data
@@ -229,10 +229,10 @@ endpoint <- "http://api.statbank.dk/v1/tables"
 
 ```{r subject-20021-tabeller}
 our_body <- list(lang = "en", subjects = I(20021))
-data <- POST(endpoint, body=our_body, encode = "json") %>% 
-  content() %>% 
+data <- POST(endpoint, body=our_body, encode = "json") |> 
+  content() |> 
   fromJSON()
-data %>% head()
+data |> head()
 ```
 
 There are 21 tables under this subject. Let us see what information we can get about table "FOLK1A":
@@ -244,8 +244,8 @@ endpoint <- "http://api.statbank.dk/v1/tableinfo"
 
 ```{r table-info-metadata}
 our_body <- list(lang = "en", table = "FOLK1A")
-data <- POST(endpoint, body=our_body, encode = "json") %>% 
-  content() %>% 
+data <- POST(endpoint, body=our_body, encode = "json") |> 
+  content() |> 
   fromJSON()
 data
 ```
@@ -298,8 +298,8 @@ The data is returned as csv - we defined that in "our_body", so we now need to
 extract it a bit differently:
 
 ```{r vis-final-data}
-data <- data %>% 
-  content(type = "text") %>% 
+data <- data |> 
+  content(type = "text") |> 
   read_csv2()
 data
 ```

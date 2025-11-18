@@ -47,7 +47,7 @@ to cover the basics, and we are assuming that you know how to use the following 
     - Alternatively run everything on rstudio.cloud
 - Know how to assign values to variables
 - Know what a function is, and how we pass input and parameters to it
-- Be familiar with the %>% operator
+- Be familiar with the %>% or |> operator
 - Know the basic verbs from dplyr of the tidyverse:
     - select
     - filter

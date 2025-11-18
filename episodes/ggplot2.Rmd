@@ -59,7 +59,7 @@ We read in data from a csv-file. That is stored as text, so we need to convert
 the "TID" column to something that can be understood as time by R:
 
 ```{r mutate-to-quarters}
-SD_data <- SD_data %>% mutate(TID = yearquarter(TID))
+SD_data <- SD_data |> mutate(TID = yearquarter(TID))
 ```
 
 
@@ -94,23 +94,23 @@ Each chart built with ggplot2 must include the following
 Thus, the template for graphic in ggplot2 is:
 
 ```
-<DATA> %>%
+<DATA> |> 
     ggplot(aes(<MAPPINGS>)) +
     <GEOM_FUNCTION>()
 ```
-Remember from the last lesson that the pipe operator `%>%` places the result of the previous line(s) into the first argument of the function. **`ggplot`** is a function that expects a data frame to be the first argument. This allows for us to change from specifying the `data =` argument within the `ggplot` function and instead pipe the data into the function.
+Remember from the last lesson that the pipe operator ` |> ` places the result of the previous line(s) into the first argument of the function. **`ggplot`** is a function that expects a data frame to be the first argument. This allows for us to change from specifying the `data =` argument within the `ggplot` function and instead pipe the data into the function.
 
 - use the `ggplot()` function and bind the plot to a specific data frame.
 
 ```{r ggplot-steps-1, eval=FALSE, purl=FALSE}
-SD_data %>%
+SD_data |> 
     ggplot()
 ```
 
 - define a mapping (using the aesthetic (`aes`) function), by selecting the variables to be plotted and specifying how to present them in the graph, e.g. as x/y positions or characteristics such as size, shape, color, etc.
 
 ```{r ggplot-steps-2, eval=FALSE, purl=FALSE}
-SD_data %>%
+SD_data |> 
     ggplot(aes(x = TID, y = INDHOLD))
 ```
 
@@ -125,7 +125,7 @@ common ones today, including:
 To add a geom to the plot use the `+` operator. Because we have two continuous variables, let's use `geom_point()` first:
 
 ```{r first-ggplot, purl=FALSE}
-SD_data %>%
+SD_data |> 
     ggplot(aes(x = TID, y = INDHOLD)) +
     geom_point()
 ```
@@ -137,7 +137,7 @@ Alternatively we can do it now.
 Let us pull out all the regions.
 
 ```{r filter-to-region}
-plot_data <- SD_data %>% 
+plot_data <- SD_data |> 
   filter(str_detect(OMRÅDE, "Region"))
 ```
 
@@ -161,7 +161,7 @@ instead:
 
 ```{r first-ggplot-with-plus, eval=T, purl=FALSE}
 # Assign plot to a variable
-data_plot <- plot_data %>%
+data_plot <- plot_data |> 
     ggplot(aes(x = TID, y = INDHOLD))
 
 # Draw the plot as a dot plot
@@ -194,7 +194,7 @@ Building plots with **`ggplot2`** is typically an iterative process. We start by
 defining the dataset we'll use, lay out the axes, and choose a geom:
 
 ```{r create-ggplot-object, purl=FALSE}
-plot_data %>%
+plot_data |> 
     ggplot(aes(x = TID, y = INDHOLD)) +
     geom_point()
 ```
@@ -205,7 +205,7 @@ We might want to color the points, based on the marriage status.
 We place the color argument within the aes() function, because we want to
 map the values in "CIVILSTAND" to the 
 ```{r adding-colors, purl=FALSE}
-plot_data %>%
+plot_data |> 
     ggplot(aes(x = TID, y = INDHOLD, color = CIVILSTAND)) +
     geom_point()
 ```
@@ -239,7 +239,7 @@ multi-panel plot:
 
 
 ```{r barplot-faceting}
-plot_data %>%
+plot_data |> 
     ggplot(aes(x = TID, y = INDHOLD, color = CIVILSTAND)) +
     geom_point() +
     facet_wrap(~OMRÅDE)
@@ -258,7 +258,7 @@ We can use boxplots to visualize the distribution of observations for each
 **CIVILSTAND**:
 
 ```{r boxplot, purl=FALSE}
-plot_data %>%
+plot_data |> 
     ggplot(aes(x = CIVILSTAND, y = INDHOLD)) +
     geom_boxplot()
 ```
@@ -270,7 +270,7 @@ By adding points to a boxplot, we can have a better idea of the number of
 measurements and of their distribution:
 
 ```{r boxplot-with-jitter, purl=FALSE}
-plot_data %>%
+plot_data |> 
     ggplot(aes(x = CIVILSTAND, y = INDHOLD)) +
     geom_boxplot() +
     geom_jitter(alpha = 0.5,
@@ -296,7 +296,7 @@ Barplots are also useful for visualizing categorical data. By default,
 value of x (in this case, wall type) appears in the dataset.
 
 ```{r barplot-1}
-plot_data %>%
+plot_data |> 
     ggplot(aes(x = CIVILSTAND)) +
     geom_bar()
 ```
@@ -309,7 +309,7 @@ In that case, we need to provide both the x- and the y-values; ggplot
 does not calculate them!
 
 ```{r barplot-identity}
-plot_data %>% ggplot(aes(CIVILSTAND, INDHOLD)) +
+plot_data |> ggplot(aes(CIVILSTAND, INDHOLD)) +
   geom_bar(stat="identity")
 ```
 Now we get the values from INDHOLD plotted on the y-axis. But we get ALL the 
@@ -326,9 +326,9 @@ same datatype as is contained in the columns, using the yearquarter() function.
 
 ```{r barplot-quarters}
 
-plot_data %>% 
+plot_data |> 
   filter(str_detect(OMRÅDE, "Region"),
-         TID == yearquarter("2008 Q1")) %>% 
+         TID == yearquarter("2008 Q1")) |> 
   ggplot(aes(CIVILSTAND, INDHOLD)) +
   geom_bar(stat= "identity")
 ```
@@ -338,9 +338,9 @@ of divorced persons in ALL the regions.
 We can color bars by region:
 
 ```{r color-by-region}
-plot_data %>% 
+plot_data |> 
   filter(str_detect(OMRÅDE, "Region"),
-         TID == yearquarter("2008 Q1")) %>% 
+         TID == yearquarter("2008 Q1")) |> 
   ggplot(aes(CIVILSTAND, INDHOLD, color=OMRÅDE)) +
   geom_bar(stat= "identity")
 ```
@@ -350,9 +350,9 @@ We can use the `fill` aesthetic for the `geom_bar()` geom to colour bars by
 the portion of each count that is from each OMRÅDE.
 
 ```{r fill-vs-color}
-plot_data %>% 
+plot_data |> 
   filter(str_detect(OMRÅDE, "Region"),
-         TID == yearquarter("2008 Q1")) %>% 
+         TID == yearquarter("2008 Q1")) |> 
   ggplot(aes(CIVILSTAND, INDHOLD, fill=OMRÅDE)) +
   geom_bar(stat= "identity")
 ```
@@ -365,9 +365,9 @@ argument for `geom_bar()` and setting it to "dodge".
 
 
 ```{r dodge}
-plot_data %>% 
+plot_data |> 
   filter(str_detect(OMRÅDE, "Region"),
-         TID == yearquarter("2008 Q1")) %>% 
+         TID == yearquarter("2008 Q1")) |> 
   ggplot(aes(CIVILSTAND, INDHOLD, fill=OMRÅDE)) +
   geom_bar(stat= "identity", position = "dodge")
 ```
@@ -393,9 +393,9 @@ The `labs` function takes the following arguments:
 `x`, `y`, `fill`, `color`, `size`)
 
 ```{r labels-demo}
-plot_data %>% 
+plot_data |> 
   filter(str_detect(OMRÅDE, "Region"),
-         TID == yearquarter("2008 Q1")) %>% 
+         TID == yearquarter("2008 Q1")) |> 
   ggplot(aes(CIVILSTAND, INDHOLD, fill=OMRÅDE)) +
   geom_bar(stat= "identity", position = "dodge") +
   labs(title = "Civilstand by region",
@@ -411,9 +411,9 @@ the background to white using the function `theme_bw()`. Additionally, you can r
 the grid:
 
 ```{r barplot-theme-bw, purl=FALSE}
-plot_data %>% 
+plot_data |> 
   filter(str_detect(OMRÅDE, "Region"),
-         TID == yearquarter("2008 Q1")) %>% 
+         TID == yearquarter("2008 Q1")) |> 
   ggplot(aes(CIVILSTAND, INDHOLD, fill=OMRÅDE)) +
   geom_bar(stat= "identity", position = "dodge") +
   labs(title = "Civilstand by region",
