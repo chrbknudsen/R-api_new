@@ -2,6 +2,7 @@
 title: 'Whats next?'
 teaching: 10
 exercises: 2
+link-external-newwindow: true
 ---
 
 :::::::::::::::::::::::::::::::::::::: questions 
@@ -27,7 +28,7 @@ Ideally we would have a complete list here.
 
 Less ambitiously we would have a solid selection.
 
-For now we have one.
+For now we have three.
 
 The [gargle package](https://cran.r-project.org/web/packages/gargle/index.html),
 provides tools for working with the Google APIs.
@@ -39,6 +40,12 @@ an API key, but it is free.
 
 [Wikidata](https://www.wikidata.org/wiki/Wikidata:REST_API) handles factual data
 for the Wikipedia infrastructure. 
+
+
+You can find other courses, covering other aspects of R in our course calendars:
+
+- [Roskilde University Library](https://roskildeuni.libcal.com/){target="_blank"}
+- [Copenhagen University Library](https://kubkalender.kb.dk/calendar/datalab?cid=6416&t=d&d=0000-00-00&cal=6416&inc=0){target="_blank"}
 
 
 
