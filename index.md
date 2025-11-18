@@ -21,6 +21,7 @@ In this couse we assume you have the knowledge equivalent to attending one of ou
 :::::::::::::::: solution
 
 ### List of required knowledge
+
 - <a href="https://kubdatalab.github.io/R-api_new/#software-setup" target="_blank">Have R and R-studio installed</a> 
     - Alternatively run everything on rstudio.cloud
 - Know how to assign values to variables
