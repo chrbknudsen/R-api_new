@@ -186,8 +186,8 @@ parameter "variables_only = T".
 What kind of values can the individual datapoints take?
 
 ```{r get-values}
-metadata %>% 
-  slice(4) %>% 
+metadata |> 
+  slice(4) |> 
   pull(values)
 ```
 
@@ -198,11 +198,11 @@ column.
 The same trick can be done for the other fields in the table:
 
 ```{r municipalites}
-metadata %>% 
-  slice(1) %>% 
-  pull(values) %>% 
-  .[[1]] %>% 
-  head
+metadata |> 
+  slice(1) |> 
+  pull(values) |> 
+  .[[1]] |> 
+  head()
 ```
 Here we see the individual municipalities in Denmark. 
 
@@ -249,8 +249,8 @@ That information is stored in the variable "CIVILSTAND".
 
 And above, we saw that we had the following values in that variable:
 ```{r pulling-values}
-metadata %>% 
-  slice(4) %>% 
+metadata |> 
+  slice(4) |> 
   pull(values)
 ```
 

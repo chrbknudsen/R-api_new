@@ -155,7 +155,7 @@ specify the result that we want:
 
 ```{r specific-joke}
 library(tidyverse)
-GET("https://icanhazdadjoke.com/j/lGJmrrzAsc",  accept("text/plain")) %>% 
+GET("https://icanhazdadjoke.com/j/lGJmrrzAsc",  accept("text/plain")) |> 
   content()
 ```
 
@@ -174,7 +174,7 @@ it to *result*:
 
 ```{r dog-jokes}
 result <- GET("https://icanhazdadjoke.com/search?term=dog",
-              accept("application/json")) %>% 
+              accept("application/json")) |> 
           content()
 result
 ```
@@ -188,8 +188,8 @@ convert it to a data frame. We begin by loading the library:
 
 ```{r extract-from-json}
 library(jsonlite)
-GET("https://icanhazdadjoke.com/search?term=dog", accept("application/json")) %>% 
-  content(as="text") %>% 
+GET("https://icanhazdadjoke.com/search?term=dog", accept("application/json")) |> 
+  content(as="text") |> 
   fromJSON()
 ```
 
@@ -215,8 +215,8 @@ Request dad jokes about cats
 ## Solution
 
 ```{r}
-GET("https://icanhazdadjoke.com/search?term=dog", accept("application/json")) %>% 
-content(as="text") %>% 
+GET("https://icanhazdadjoke.com/search?term=dog", accept("application/json")) |> 
+content(as="text") |> 
 fromJSON()
 ```
 
