@@ -318,7 +318,7 @@ write_csv2(data, "data/SD_data.csv")
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
-- Larger services often provide packages to make it easier to use their API
+- Larger services often provide packages to make it easier to use their API.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
