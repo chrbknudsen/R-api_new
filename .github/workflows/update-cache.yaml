@@ -14,7 +14,9 @@ on:
 jobs:
   preflight:
     name: "Preflight Check"
-    runs-on: ubuntu-latest
+    # 2024-10-01: ubuntu latest is now 24.04 and R is not installed by default in the runner image
+    # pin to 22.04 for now
+    runs-on: ubuntu-22.04
     outputs:
       ok: ${{ steps.check.outputs.ok }}
     steps:
@@ -36,7 +38,9 @@ jobs:
 
   check_renv:
     name: "Check if We Need {renv}"
-    runs-on: ubuntu-latest
+    # 2024-10-01: ubuntu latest is now 24.04 and R is not installed by default in the runner image
+    # pin to 22.04 for now
+    runs-on: ubuntu-22.04
     needs: preflight
     if: ${{ needs.preflight.outputs.ok == 'true'}}
     outputs:
@@ -52,7 +56,9 @@ jobs:
 
   check_token:
     name: "Check SANDPAPER_WORKFLOW token"
-    runs-on: ubuntu-latest
+    # 2024-10-01: ubuntu latest is now 24.04 and R is not installed by default in the runner image
+    # pin to 22.04 for now
+    runs-on: ubuntu-22.04
     needs: check_renv
     if: ${{ needs.check_renv.outputs.needed == 'true' }}
     outputs:
@@ -69,7 +75,9 @@ jobs:
     name: "Update Package Cache"
     needs: check_token
     if: ${{ needs.check_token.outputs.repo== 'true' }}
-    runs-on: ubuntu-latest
+    # 2024-10-01: ubuntu latest is now 24.04 and R is not installed by default in the runner image
+    # pin to 22.04 for now
+    runs-on: ubuntu-22.04
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       RENV_PATHS_ROOT: ~/.local/share/renv/
