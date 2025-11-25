@@ -20,8 +20,6 @@ jobs:
   #  - no .github files were committed
   test-pr:
     name: "Test if pull request is valid"
-    # 2024-10-01: ubuntu latest is now 24.04 and R is not installed by default in the runner image
-    # pin to 22.04 for now
     runs-on: ubuntu-22.04
     if: >
       github.event.workflow_run.event == 'pull_request' &&
@@ -76,8 +74,6 @@ jobs:
   create-branch:
     name: "Create Git Branch"
     needs: test-pr
-    # 2024-10-01: ubuntu latest is now 24.04 and R is not installed by default in the runner image
-    # pin to 22.04 for now
     runs-on: ubuntu-22.04
     if: ${{ needs.test-pr.outputs.is_valid == 'true' }}
     env:
@@ -86,7 +82,7 @@ jobs:
       contents: write
     steps:
       - name: 'Checkout md outputs'
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: md-outputs
           path: built
@@ -124,8 +120,6 @@ jobs:
   comment-pr:
     name: "Comment on Pull Request"
     needs: [test-pr, create-branch]
-    # 2024-10-01: ubuntu latest is now 24.04 and R is not installed by default in the runner image
-    # pin to 22.04 for now
     runs-on: ubuntu-22.04
     if: ${{ needs.test-pr.outputs.is_valid == 'true' }}
     env:
@@ -156,8 +150,6 @@ jobs:
   comment-changed-workflow:
     name: "Comment if workflow files have changed"
     needs: test-pr
-    # 2024-10-01: ubuntu latest is now 24.04 and R is not installed by default in the runner image
-    # pin to 22.04 for now
     runs-on: ubuntu-22.04
     if: ${{ always() && needs.test-pr.outputs.is_valid == 'false' }}
     env:
@@ -190,4 +182,3 @@ jobs:
         with:
           pr: ${{ env.NR }}
           body: ${{ env.body }}
-
