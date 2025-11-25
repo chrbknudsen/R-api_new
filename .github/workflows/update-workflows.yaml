@@ -18,8 +18,6 @@ on:
 jobs:
   check_token:
     name: "Check SANDPAPER_WORKFLOW token"
-    # 2024-10-01: ubuntu latest is now 24.04 and R is not installed by default in the runner image
-    # pin to 22.04 for now
     runs-on: ubuntu-22.04
     outputs:
       workflow: ${{ steps.validate.outputs.wf }}
@@ -33,14 +31,12 @@ jobs:
 
   update_workflow:
     name: "Update Workflow"
-    # 2024-10-01: ubuntu latest is now 24.04 and R is not installed by default in the runner image
-    # pin to 22.04 for now
     runs-on: ubuntu-22.04
     needs: check_token
     if: ${{ needs.check_token.outputs.workflow == 'true' }}
     steps:
       - name: "Checkout Repository"
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Update Workflows
         id: update

@@ -8,8 +8,6 @@ on:
 jobs:
   send-close-signal:
     name: "Send closing signal"
-    # 2024-10-01: ubuntu latest is now 24.04 and R is not installed by default in the runner image
-    # pin to 22.04 for now
     runs-on: ubuntu-22.04
     if: ${{ github.event.action == 'closed' }}
     steps:
@@ -18,8 +16,7 @@ jobs:
           mkdir -p ./pr
           printf ${{ github.event.number }} > ./pr/NUM
       - name: Upload Diff
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: pr
           path: ./pr
-
